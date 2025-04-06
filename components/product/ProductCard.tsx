@@ -1,10 +1,11 @@
-import { Card, CardContent, CardFooter } from "../../components/ui/card";
-import { Button } from "../../components/ui/button";
-import { PriceTag } from "../../components/ui/price-tag";
-import { Product } from "../../types/store";
-import { useStore } from "../../contexts/StoreContext";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { PriceTag } from "@/components/ui/price-tag";
+import { Product } from "@/types/store";
+import { useStore } from "@/contexts/StoreContext";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ProductCardProps {
   product: Product;
@@ -23,9 +24,11 @@ export function ProductCard({ product }: ProductCardProps) {
     <Card className="overflow-hidden product-card-hover">
       <Link href={`/products/${product.id}`}>
         <div className="aspect-square overflow-hidden bg-muted">
-          <img
+          <Image
             src={product.image}
             alt={product.name}
+            width={500}
+            height={500}
             className="h-full w-full object-cover transition-all hover:scale-105"
           />
         </div>

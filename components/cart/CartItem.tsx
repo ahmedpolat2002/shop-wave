@@ -5,6 +5,7 @@ import { useStore } from "@/contexts/StoreContext";
 import { CartItem as CartItemType } from "@/types/store";
 import { Trash, Plus, Minus } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface CartItemProps {
   item: CartItemType;
@@ -37,9 +38,11 @@ export function CartItem({ item }: CartItemProps) {
       {/* Product Image */}
       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border">
         <Link href={`/products/${product.id}`}>
-          <img
+          <Image
             src={product.image}
             alt={product.name}
+            width={96}
+            height={96}
             className="h-full w-full object-cover"
           />
         </Link>

@@ -9,6 +9,7 @@ import { getProductById, getProductsByCategory } from "@/data/products";
 import { useStore } from "@/contexts/StoreContext";
 import { ProductGrid } from "@/components/product/ProductGrid";
 import { ShoppingCart, Plus, Minus, ArrowLeft } from "lucide-react";
+import Image from "next/image";
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
@@ -68,9 +69,11 @@ const ProductDetailPage = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         <div className="bg-muted rounded-lg overflow-hidden">
-          <img
+          <Image
             src={product.image}
             alt={product.name}
+            width={500}
+            height={500}
             className="w-full h-full object-contain aspect-square"
           />
         </div>
